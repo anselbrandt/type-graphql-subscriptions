@@ -11,6 +11,7 @@ const type_graphql_1 = require("type-graphql");
 require("reflect-metadata");
 const graphql_1 = require("./src/graphql");
 const http_1 = __importDefault(require("http"));
+const PORT = process.env.SERVER_PORT || 4000;
 dotenv_1.default.config();
 server_config_1.default.getExpress()
     .then(({ appExpress, pubsub }) => {
@@ -29,12 +30,12 @@ server_config_1.default.getExpress()
     server.applyMiddleware({ app: appExpress, path: "/graphql" });
     const httpServer = http_1.default.createServer(appExpress);
     server.installSubscriptionHandlers(httpServer);
-    httpServer.listen(Number(process.env.SERVER_PORT), () => {
-        console.log(chalk_1.default.green(`Server started on port ${process.env.SERVER_PORT}`));
+    httpServer.listen(Number(PORT), () => {
+        console.log(chalk_1.default.green(`Server started at http://localhost:${PORT}/graphql`));
     });
 })
     .catch((error) => {
-    console.log(chalk_1.default.red(`Unable to start server on port ${process.env.SERVER_PORT}
+    console.log(chalk_1.default.red(`Unable to start server on port ${PORT}
       Error: ${error}`));
 });
 //# sourceMappingURL=index.js.map

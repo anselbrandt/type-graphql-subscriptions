@@ -7,6 +7,8 @@ import "reflect-metadata";
 import { Resolvers } from "./src/graphql";
 import http from "http";
 
+const PORT = process.env.SERVER_PORT || 4000;
+
 dotenv.config();
 ServerConfig.getExpress()
   .then(({ appExpress, pubsub }) => {
@@ -25,15 +27,15 @@ ServerConfig.getExpress()
     server.applyMiddleware({ app: appExpress, path: "/graphql" });
     const httpServer = http.createServer(appExpress);
     server.installSubscriptionHandlers(httpServer);
-    httpServer.listen(Number(process.env.SERVER_PORT), () => {
+    httpServer.listen(Number(PORT), () => {
       console.log(
-        chalk.green(`Server started on port ${process.env.SERVER_PORT}`)
+        chalk.green(`Server started at http://localhost:${PORT}/graphql`)
       );
     });
   })
   .catch((error) => {
     console.log(
-      chalk.red(`Unable to start server on port ${process.env.SERVER_PORT}
+      chalk.red(`Unable to start server on port ${PORT}
       Error: ${error}`)
     );
   });

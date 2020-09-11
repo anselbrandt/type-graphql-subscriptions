@@ -1,5 +1,7 @@
 # Type Graphql Subscriptions
 
+Working demo of Graphql subscriptions using Type Graphql
+
 ### Development
 
 Main entry file is:
