@@ -15,3 +15,21 @@ To compile and watch for file changes, run:
 In a seperate terminal, to start your app, run:
 
 `npm run-script dev` or `yarn dev`
+
+### Use
+
+Subscribe using:
+
+```
+subscription {
+  subscription
+}
+```
+
+Subscription event will be generated on `hello` query:
+
+```
+{
+  hello
+}
+```
