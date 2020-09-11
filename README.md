@@ -1,6 +1,6 @@
 # Type Graphql Subscriptions
 
-Working demo of Graphql subscriptions using Type Graphql
+Working demo of [GraphQL](https://graphql.org) subscriptions using [TypeGraphQL](https://typegraphql.com)
 
 ### Development
 
